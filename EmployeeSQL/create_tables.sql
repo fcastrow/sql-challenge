@@ -20,7 +20,7 @@ dept_name varchar(50) not null
 );
 
 create table dept_emp(
-emp_no int not null,
+emp_no int not null references employees(emp_no),
 dept_no varchar(4) not null references departments(dept_no),
 from_date date,
 to_date date,

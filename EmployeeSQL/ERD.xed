@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><Diagram version="1.0" type="POSTGRES" versionMajor="11" versionMinor="5" groupSchema="false" hide_inv="false">
+<Table id="0" name="departments" schema="public" database="Employee_SQL_Homework_db" background="16777165">
+<Column id="1" name="dept_no" type="varchar" length="4" nulls="false"/>
+<Column id="2" name="dept_name" type="varchar" length="50" nulls="false"/>
+</Table>
+<Table id="3" name="dept_emp" schema="public" database="Employee_SQL_Homework_db" background="16777165">
+<Column id="4" name="emp_no" type="integer" length="0" nulls="false"/>
+<Column id="5" name="dept_no" type="varchar" length="4" nulls="false"/>
+<Column id="6" name="from_date" type="date" length="0" nulls="true"/>
+<Column id="7" name="to_date" type="date" length="0" nulls="true"/>
+</Table>
+<Table id="8" name="dept_manager" schema="public" database="Employee_SQL_Homework_db" background="16777165">
+<Column id="9" name="dept_no" type="varchar" length="4" nulls="false"/>
+<Column id="10" name="emp_no" type="integer" length="0" nulls="false"/>
+<Column id="11" name="from_date" type="date" length="0" nulls="true"/>
+<Column id="12" name="to_date" type="date" length="0" nulls="true"/>
+</Table>
+<Table id="13" name="employees" schema="public" database="Employee_SQL_Homework_db" background="16777165">
+<Column id="14" name="emp_no" type="integer" length="0" nulls="false"/>
+<Column id="15" name="birth_date" type="date" length="0" nulls="true"/>
+<Column id="16" name="first_name" type="varchar" length="50" nulls="true"/>
+<Column id="17" name="last_name" type="varchar" length="50" nulls="true"/>
+<Column id="18" name="gender" type="char" length="1" nulls="true"/>
+<Column id="19" name="hire_date" type="date" length="0" nulls="true"/>
+</Table>
+<Table id="20" name="salaries" schema="public" database="Employee_SQL_Homework_db" background="16777165">
+<Column id="21" name="emp_no" type="integer" length="0" nulls="false"/>
+<Column id="22" name="salary" type="integer" length="0" nulls="true"/>
+<Column id="23" name="from_date" type="date" length="0" nulls="true"/>
+<Column id="24" name="to_date" type="date" length="0" nulls="true"/>
+</Table>
+<Table id="25" name="titles" schema="public" database="Employee_SQL_Homework_db" background="16777165">
+<Column id="26" name="emp_no" type="integer" length="0" nulls="false"/>
+<Column id="27" name="title" type="varchar" length="50" nulls="true"/>
+<Column id="28" name="from_date" type="date" length="0" nulls="true"/>
+<Column id="29" name="to_date" type="date" length="0" nulls="true"/>
+</Table>
+<Relation id="30" name="dept_emp_dept_no_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="onDelete" class="String" value="NO ACTION"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>1</FK>
+<PK>5</PK>
+</Relation>
+<Relation id="31" name="dept_manager_emp_no_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="onDelete" class="String" value="NO ACTION"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>14</FK>
+<PK>10</PK>
+</Relation>
+<Relation id="32" name="dept_manager_dept_no_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="onDelete" class="String" value="NO ACTION"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>1</FK>
+<PK>9</PK>
+</Relation>
+<Relation id="33" name="salaries_emp_no_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="onDelete" class="String" value="NO ACTION"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>14</FK>
+<PK>21</PK>
+</Relation>
+<Relation id="34" name="titles_emp_no_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="onDelete" class="String" value="NO ACTION"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>14</FK>
+<PK>26</PK>
+</Relation>
+<Constraint table="0" name="departments_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;DEFAULT&gt;"/>
+<ConstraintColumn id="1"/>
+</Constraint>
+<Constraint table="3" name="dept_emp_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;DEFAULT&gt;"/>
+<ConstraintColumn id="4"/>
+<ConstraintColumn id="5"/>
+</Constraint>
+<Constraint table="8" name="dept_manager_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;DEFAULT&gt;"/>
+<ConstraintColumn id="9"/>
+<ConstraintColumn id="10"/>
+</Constraint>
+<Constraint table="13" name="employees_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;DEFAULT&gt;"/>
+<ConstraintColumn id="14"/>
+</Constraint>
+<Constraint table="13" name="employees_gender_check" type="Check" condition="((gender = 'M'::bpchar) OR (gender = 'F'::bpchar))"/>
+<Sheet name="DABC PostgreSQL" id="35" disp_at="true" disp_ph="true" disp_co="true" disp_rn="true">
+<Place id="13" visible="true">21,19,160,130</Place>
+<Place id="33" visible="true" options="21.0,19.0,160.0,130.0,501.0,0.0,130.0,90.0,4,181.0,80.0,340.0,80.0,340.0,50.0,501.0,50.0">717,19,0,0</Place>
+<Place id="31" visible="true" options="21.0,19.0,160.0,130.0,401.0,289.0,150.0,90.0,3,181.0,130.0,410.0,130.0,410.0,289.0">786,-78,0,0</Place>
+<Place id="20" visible="true">501,0,130,90</Place>
+<Place id="25" visible="true">791,49,130,90</Place>
+<Place id="3" visible="true">61,359,150,90</Place>
+<Place id="0" visible="true">21,179,160,60</Place>
+<Place id="30" visible="true" options="21.0,179.0,160.0,60.0,61.0,359.0,150.0,90.0,4,70.0,239.0,70.0,300.0,120.0,300.0,120.0,359.0">652,-16,13,0</Place>
+<Place id="32" visible="true" options="21.0,179.0,160.0,60.0,401.0,289.0,150.0,90.0,4,181.0,230.0,290.0,230.0,290.0,300.0,401.0,300.0">741,5,0,17</Place>
+<Place id="8" visible="true">401,289,150,90</Place>
+<Place id="34" visible="true" options="21.0,19.0,160.0,130.0,791.0,49.0,130.0,90.0,4,181.0,120.0,490.0,120.0,490.0,100.0,791.0,100.0">741,15,0,0</Place>
+</Sheet>
+<Settings sheet="35" zoom="1.0"/>
+</Diagram>

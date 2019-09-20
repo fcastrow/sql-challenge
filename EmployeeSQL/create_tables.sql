@@ -8,15 +8,15 @@
 create table employees(
 emp_no int not null primary key,
 birth_date date,
-first_name varchar(50),
-last_name varchar(50),
-gender char(1) check(gender = 'M' or gender = 'F'),
+first_name varchar(256),
+last_name varchar(256),
+gender char(1) check(gender = 'M' or gender = 'F' or gender = 'L' or gender = 'G' or gender = 'B' or gender = 'T' or gender = 'Q'),
 hire_date date
 );
 
 create table departments(
 dept_no varchar(4) not null primary key,
-dept_name varchar(50) not null
+dept_name varchar(256)
 );
 
 create table dept_emp(
@@ -44,7 +44,7 @@ to_date date
 
 create table titles(
 emp_no int not null references employees(emp_no),
-title varchar(50),
+title varchar(256),
 from_date date,
 to_date date
 );

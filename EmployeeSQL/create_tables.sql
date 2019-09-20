@@ -1,7 +1,7 @@
+--drop table employees cascade;
 --drop table departments cascade;
 --drop table dept_emp cascade;
 --drop table dept_manager cascade;
---drop table employees cascade;
 --drop table salaries cascade;
 --drop table titles cascade;
 
